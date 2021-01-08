@@ -11,7 +11,7 @@ phases:
 
   post_build:
     commands:
-      - sam package --output-template-file packaged.yaml --s3-bucket linjungz-serverless-cicd-demo
+      - sam package --output-template-file packaged.yaml --s3-bucket linjungz-serverless-cicd-demo --s3-prefix build
 
 artifacts:
   type: zip
