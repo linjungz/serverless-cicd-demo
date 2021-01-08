@@ -1,0 +1,23 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      python: 3.8
+
+  pre_build:
+    commands:
+      - python -m unittest discover tests
+
+  build:
+    commands:
+      - sam build
+
+  post_build:
+    commands:
+      - sam package --output-template-file packaged.yaml --s3-bucket linjungz-serverless-cicd-demo
+
+artifacts:
+  type: zip
+  files:
+    - packaged.yaml
