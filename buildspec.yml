@@ -8,12 +8,5 @@ phases:
   build:
     commands:
       - sam build
-      - sam local invoke HelloWorldFunction
-
-  post_build:
-    commands:
-      - sam package --output-template-file packaged.yaml --s3-bucket linjungz-serverless-cicd-demo --s3-prefix build
-
-artifacts:
-  files:
-    - packaged.yaml
+      - sam package --output-template-file packaged.yaml --s3-bucket $S3BUCKET --s3-prefix $S3PREFIX
+      - s3 cp packaged.yaml s3://$S3BUCKET/$S3PREFIX/
