@@ -5,6 +5,10 @@ phases:
     runtime-versions:
       python: 3.8
 
+  pre_build:
+    commands:
+      - pip config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple
+
   build:
     commands:
       - sam build
