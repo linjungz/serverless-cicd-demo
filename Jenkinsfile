@@ -13,8 +13,13 @@ pipeline {
       steps {
         input 'Need Approval for Deployment'
         echo 'Now deploy application'
+        sh 'aws s3 cp '
       }
     }
 
+  }
+  environment {
+    S3BUCKET = 'linjungz-serverless-cicd-demo'
+    S3PREFIX = 'build'
   }
 }
