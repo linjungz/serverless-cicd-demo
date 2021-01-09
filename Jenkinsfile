@@ -9,10 +9,10 @@ pipeline {
       }
     }
 
-    stage('Approval') {
+    stage('Deploy') {
       steps {
-        waitUntil()
-        input(message: 'Need Approval for Deployment', id: 'id', ok: 'ok')
+        input 'Need Approval for Deployment'
+        echo 'Now deploy application'
       }
     }
 
